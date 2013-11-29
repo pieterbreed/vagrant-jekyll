@@ -1,4 +1,4 @@
-ruby-virtualbox
+vagrant-jekyll
 ===============
 
-A vagrant spec for setting up a development environment for ruby using vagrant and with a few tweaks for Allan Gray
+A vagrant spec for ubuntu with [jekyll blogging platform](http://import.jekyllrb.com/) installed.
