@@ -106,7 +106,7 @@ file { 'set_gem_ignore_ssl':
 }
 
 exec { 'install jekyll':
-  command => "${as_vagrant} 'gem install jekyll'",
+  command => "${as_vagrant} 'gem install jekyll less'",
   require => [Exec['set_default_ruby'], File['set_gem_ignore_ssl']]
 }
 
