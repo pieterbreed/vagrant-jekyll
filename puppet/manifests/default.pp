@@ -98,6 +98,18 @@ exec { 'set_default_ruby':
   require => Exec['install_ruby']
 }
 
+file { 'set_gem_ignore_ssl':
+  path    => "${home}/.gemrc",
+  ensure  => present,
+  mode    => 0664,
+  content => ":ssl_verify_mode: 0",
+}
+
+exec { 'install jekyll':
+  command => "${as_vagrant} 'gem install jekyll'",
+  require => [Exec['set_default_ruby'], File['set_gem_ignore_ssl']]
+}
+
 exec { 'install_bundler':
   command => "${as_vagrant} 'gem install bundler --no-rdoc --no-ri'",
   creates => "${home}/.rvm/bin/bundle",
